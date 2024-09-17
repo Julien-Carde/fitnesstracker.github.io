@@ -29,7 +29,7 @@ header h1, header h3, footer h1, footer h3 {
 #containerCalorie, #containerWeightLog, #containerWorkoutLog, #containerFood {
     background-color: white;
     border-radius: 20px;
-    padding: 20px;
+    padding: 50px;
     width: 80%;
     font-family: Inter;
     box-shadow: 0 0 50px rgb(0, 0, 0);
