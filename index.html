@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <title>Fitness Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+            rel="icon"
+            href=
+"https://www.svgrepo.com/show/10012/dumbbell.svg"
+            type="image/x-icon"
+        />
+</head>
+<body>
+    <header>
+        <h1>FitnessTracker_</h1>
+        <h3>Log-in</h3>
+    </header>
+    <div id="dashboard">
+    <div id="containerCalorie">
+        <div id="settings">
+           <h1>Calorie Calculator</h1>
+           <img src="https://www.svgrepo.com/show/458088/calories.svg" height="50px" id="calorieImg">
+           <h3>Age</h3>
+           <input type="number" id="age" min="15" max="80">
+           <h3>Gender</h3>
+           <form>
+           <input type="radio" id="male" name="option" value="Male">
+           <label for="male">Male</label>
+    
+           <input type="radio" id="female" name="option" value="Female">
+           <label for="female">Female</label>
+           </form>
+           <h3>Height</h3>
+           <input type="number" id="height" placeholder="cm" min="0">
+           <h3>Weight</h3>
+           <input type="number" id="weight" placeholder="kg">
+           <h3>Activity Level</h3>
+           <select name="activityLevel" id="activityLevel">
+            <option value="1.2">Sedentary (little or no exercise)</option>
+            <option value="1.375">Light (exercise 1-3 times/week)</option>
+            <option value="1.55">Moderate (exercise 4-5 times/week)</option>
+            <option value="1.725">Active (exercise daily)</option>
+            <option value="1.9">Very active (intense exercise or physical job)</option>
+        </select>
+        </div>
+        <div id="result">
+            <h3>Daily calorie requirements</h3>
+            <div id="resultBox"></div>
+        </div>
+    </div>
+    <div id="containerWeightLog">
+        <h1>Weight</h1>
+        <img src="https://www.svgrepo.com/show/10019/scale.svg" height="40px" id="weightImg">
+        <input type="number" step="0.1" id="weightInput" placeholder="Current weight (kg)">
+        <input type="date" id="weightLogDate">
+        <button id="logButton"  onclick="logWeight()">Log Weight</button>
+        <canvas id="weightChart"></canvas> <!-- Canvas for the plot graph -->
+    </div>
+    <div id="containerWorkoutLog">
+        <h1>Workout</h1>
+        <img src="https://www.svgrepo.com/show/10012/dumbbell.svg" height="40px" id="workoutImg">
+        <select name="exercise" id="exercise">
+            <option id="benchPress">Bench Press</option>
+            <option id="squats">Squats</option>
+            <option id="shoulderPress">Shoulder Press</option>
+            <option id="rows">Rows</option>
+            <option id="crunches">Crunches</option>
+        </select>
+        <input type="number" id="set" placeholder="set">
+        <input type="number" id="rep" placeholder="rep">
+        <input type="number" id="weight" placeholder="kg" step="0.5">
+        <button id="logExerciseButton"  onclick="logExercise()">Add exercise</button>
+        <div id="workoutLog"></div>
+    </div>
+    <div id="containerFood">
+        <h1>Food</h1>
+        <img src="https://www.svgrepo.com/show/66299/apple.svg" height="40px" id="foodImg">
+        <input type="text" id="foodInput" placeholder="Enter food name" oninput="fetchSuggestions()" autocomplete="off">
+        <div id="autocompleteList" class="autocomplete-items"></div>
+        <button id="searchButton">Search Food</button>
+        <div id="foodResult"></div>
+        <div id="foodLog"></div>
+        <div id="totalCalories"></div>
+    </div>
+    <style>
+        .autocomplete-items {
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /* Position the autocomplete items to be below the input */
+            position: absolute;
+            max-height: 150px;
+            overflow-y: auto;
+            width: 100%;
+        }
+    
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+        }
+    
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9;
+        }
+    </style>
+    </div>
+    <footer></footer>
+
+    
+</body>
+<script src="./index.js"></script>
+</html>
